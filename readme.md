@@ -17,4 +17,4 @@ Mục lục:
 | Authentication là bước đầu tiên của authorization vì vậy luôn luôn đến trước.      | Authorization được thực hiện sau khi authentication thành công.    |
 
 ## Lab
-
+Link: https://00bluec10.000webhostapp.com/login.php

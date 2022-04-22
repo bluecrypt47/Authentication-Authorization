@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,15 @@
 </head>
 
 <body>
-    Login Successfully!
+    <?php
+    if (isset($_SESSION['email'])) {
+        echo '<h1 align="center">Welcome ' . $_SESSION['email'] . "!</h1>";
+        echo '<a href="logout.php" class="btn" >Logout</a> <br \>';
+    } else {
+        echo '<script> window.location="login.php";</script>';
+    }
+    ?>
+
 </body>
 
 </html>
