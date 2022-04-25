@@ -5,6 +5,7 @@ Mục lục:
 - [Lab](#lab)
   - [Authentication](#authentication)
     - [OTG-AUTHN-001](#otg-authn-001)
+    - [OTG-AUTHN-002](#otg-authn-002)
   - [Authorization](#authorization)
 
 ## Authentication - Authorization
@@ -24,11 +25,16 @@ Link: https://00bluec10.000webhostapp.com/login.php
 
 ### Authentication
 #### OTG-AUTHN-001
-Tôi sử dụng Burp Suite để có thể bắt được các gói header và kiểm tra chúng.
-- Gửi dữ liệu bằng phương thức POST qua HTTP
-![Hình 1.](~/../img/Authentication_OTG-AUTHN-001_1.png)
+Tôi sử dụng `Burp Suite` để có thể bắt được các gói `header` và kiểm tra chúng.
+![Hình 1.](~/../img/1.png)
 
-
+#### OTG-AUTHN-002
+- Sử dụng `intruder` của `Burp Suite` để có thể payload `email` và `password`. Tôi sử dụng chế độ `Cluster bomb` để có thể đặt nhiều payload trong 1 lần và tiết kiệm thời gian. 
+![Hình 2.](~/../img/2.png)
+- Tôi sử dụng 2 list sau để payload
+![Hình 3.](~/../img/3.png)
+- Kết quả, tôi chỉ cần kiểm tra `Response` có chữ `Xin chào` hay không để có thể biết tài khoản này dùng được không.
+![Hình 4.](~/../img/4.png)
 
 ### Authorization
 
