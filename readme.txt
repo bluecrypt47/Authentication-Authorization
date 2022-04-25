@@ -3,6 +3,9 @@ Thời gian: 21/04/2022
 Mục lục:
 - [Authentication - Authorization](#authentication---authorization)
 - [Lab](#lab)
+  - [Authentication](#authentication)
+    - [OTG-AUTHN-001](#otg-authn-001)
+  - [Authorization](#authorization)
 
 ## Authentication - Authorization
 - Authentication (xác thực) nghĩa là xác minh danh tính của user.
@@ -18,3 +21,20 @@ Mục lục:
 
 ## Lab
 Link: https://00bluec10.000webhostapp.com/login.php
+
+### Authentication
+#### OTG-AUTHN-001
+Tôi sử dụng Burp Suite để có thể bắt được các gói header và kiểm tra chúng.
+- Gửi dữ liệu bằng phương thức POST qua HTTP
+![Hình 1.](~/../img/Authentication_OTG-AUTHN-001_1.png)
+
+
+
+### Authorization
+
+
+
+
+
+
+
