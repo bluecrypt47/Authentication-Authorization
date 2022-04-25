@@ -6,7 +6,20 @@ Mục lục:
   - [Authentication](#authentication)
     - [OTG-AUTHN-001](#otg-authn-001)
     - [OTG-AUTHN-002](#otg-authn-002)
+    - [OTG-AUTHN-002](#otg-authn-002-1)
+    - [OTG-AUTHN-003](#otg-authn-003)
+    - [OTG-AUTHN-004](#otg-authn-004)
+    - [OTG-AUTHN-005](#otg-authn-005)
+    - [OTG-AUTHN-006](#otg-authn-006)
+    - [OTG-AUTHN-007](#otg-authn-007)
+    - [OTG-AUTHN-008](#otg-authn-008)
+    - [OTG-AUTHN-009](#otg-authn-009)
+    - [OTG-AUTHN-010](#otg-authn-010)
   - [Authorization](#authorization)
+    - [OTG-AUTHZ-001](#otg-authz-001)
+    - [OTG-AUTHZ-002](#otg-authz-002)
+    - [OTG-AUTHZ-003](#otg-authz-003)
+    - [OTG-AUTHZ-004](#otg-authz-004)
 
 ## Authentication - Authorization
 - Authentication (xác thực) nghĩa là xác minh danh tính của user.
@@ -36,9 +49,34 @@ Tôi sử dụng `Burp Suite` để có thể bắt được các gói `header` 
 - Kết quả, tôi chỉ cần kiểm tra `Response` có chữ `Xin chào` hay không để có thể biết tài khoản này dùng được không.
 ![Hình 4.](~/../img/4.png)
 
+#### OTG-AUTHN-002
+
+#### OTG-AUTHN-003
+
+#### OTG-AUTHN-004
+
+#### OTG-AUTHN-005
+
+#### OTG-AUTHN-006
+
+#### OTG-AUTHN-007
+
+#### OTG-AUTHN-008
+
+#### OTG-AUTHN-009
+
+#### OTG-AUTHN-010
+
+
 ### Authorization
 
+#### OTG-AUTHZ-001
 
+#### OTG-AUTHZ-002
+
+#### OTG-AUTHZ-003
+
+#### OTG-AUTHZ-004
 
 
 
