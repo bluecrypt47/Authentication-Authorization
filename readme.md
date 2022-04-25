@@ -31,8 +31,8 @@ Tôi sử dụng `Burp Suite` để có thể bắt được các gói `header` 
 #### OTG-AUTHN-002
 - Sử dụng `intruder` của `Burp Suite` để có thể payload `email` và `password`. Tôi sử dụng chế độ `Cluster bomb` để có thể đặt nhiều payload trong 1 lần và tiết kiệm thời gian. 
 ![Hình 2.](~/../img/2.png)
-- Tôi sử dụng 2 list sau để payload
-![Hình 3.](~/../img/3.png)
+- Tôi sử dụng 2 list sau để payload.
+- ![Hình 3.](~/../img/3.png)
 - Kết quả, tôi chỉ cần kiểm tra `Response` có chữ `Xin chào` hay không để có thể biết tài khoản này dùng được không.
 ![Hình 4.](~/../img/4.png)
 
