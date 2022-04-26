@@ -33,7 +33,7 @@ Mục lục:
 | Authentication là bước đầu tiên của authorization vì vậy luôn luôn đến trước.      | Authorization được thực hiện sau khi authentication thành công.    |
 
 ## Lab
-Link: https://00bluec10.000webhostapp.com/login.php
+Link: https://00bluec10.000webhostapp.com/index.php
 
 ### Authentication
 #### Testing for Credentials Transported over an Encrypted Channel (OTG-AUTHN-001)
