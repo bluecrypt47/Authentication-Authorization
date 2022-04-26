@@ -29,6 +29,17 @@ if (isset($_POST['login'])) {
 
     // Nếu kết quả trả về lớn hơn 1 thì nghĩa là username hoặc email đã tồn tại trong CSDL
     if (mysqli_num_rows($result) > 0) {
+        if (!empty($_POST['remember'])) {
+            setcookie('login', $_POST['email'], time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('password', $_POST['password'], time() + (10 * 365 * 24 * 60 * 60));
+        } else {
+            if (isset($_COOKIE['login'])) {
+                setcookie('login', "");
+            }
+            if (isset($_COOKIE['password'])) {
+                setcookie('password', "");
+            }
+        }
 
         echo '<script language="javascript">alert("Login Successfully!"); window.location="index.php";</script>';
     } else {
@@ -36,6 +47,6 @@ if (isset($_POST['login'])) {
         die();
     }
     $_SESSION['email'] = $email;
-    echo "Xin chào " . $username;
+    echo "Xin chào " . $_SESSION['email'];
     die();
 }

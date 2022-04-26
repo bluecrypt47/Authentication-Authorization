@@ -131,10 +131,15 @@
     <div class="form">
       <h2>Login</h2>
       <form class="login-form" method="post" action="login.php">
-        <input type="email" name="email" placeholder="email" />
-        <input type="password" name="password" placeholder="password" />
+        <input type="email" name="email" placeholder="email" value="<?php if (isset($_COOKIE['login'])) {
+                                                                      echo $_COOKIE['login'];
+                                                                    } ?>" />
+        <input type="password" name="password" placeholder="password" value="<?php if (isset($_COOKIE['password'])) {
+                                                                                echo $_COOKIE['password'];
+                                                                              } ?>" />
+        <input type="checkbox" name="remember" style="margin-left: -250px;" <?php if (isset($_COOKIE['login'])) { ?> checked <?php  } ?> />
+        <label for="remember" style="margin-left: -120px; font-weight: bold;">Remember me</label>
         <input type="submit" name="login" value="Login" style="background: #4CAF50;" />
-        <p class="message">Not registered? <a href="register.php">Create an account</a></p>
         <?php require 'handle.php'; ?>
       </form>
     </div>
