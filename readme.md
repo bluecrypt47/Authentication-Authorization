@@ -1,5 +1,5 @@
-Người thực hiện: Lê Trần Văn Chương
-Thời gian: 21/04/2022
+Người thực hiện: Lê Trần Văn Chương.
+Thời gian: 21/04/2022.
 Mục lục:
 - [Authentication - Authorization](#authentication---authorization)
 - [Lab](#lab)
@@ -49,8 +49,20 @@ Tôi sử dụng `Burp Suite` để có thể bắt được các gói `header` 
 ![Hình 4.](~/../img/4.png)
 
 #### OTG-AUTHN-003
+Để kiểm tra cơ chế khóa tài khoản, bạn cần phải có 1 tài khoản để có thể vào được. Sau đó tiến hành kiểm tra như sau:
+- Đăng nhập tài khoản bằng mật khẩu ko chính xác 3 lần, rồi đăng nhập lại bằng mật khẩu chính xác: 
+  - Nếu đăng nhập thành công, cho thấy rằng cơ chế khóa không kích hoạt sau 3 lần xác thực không chính xác. Và ta cứ tiếp tục tăng số lần nhập mật khẩu sai lên đến khi `Tài khoản bị khóa`.
+  - Nếu ứng dụng trả về `Tài khoản bị khóa` thì xác nhận rằng tài khoản đã bị khóa sau 3 lần xác thực sai.
 
 #### OTG-AUTHN-004
+- Tiếp tục sử dụng `Burp Suite` để có thể lấy được `header` của web.
+- Dùng `Send to Repeater` để có thể gửi request từ `Burp Suite` và `Send to Comparer` để kiểm tra sự thay đổi của `header` khi tôi login thành công.
+![Hình 5.](~/../img/5.png)
+![Hình 6.](~/../img/6.png)
+- Dưới là bảng so sánh 2 `header`
+![Hình 7.](~/../img/7.png)
+- Bây giờ, tôi sẽ copy phần thay đổi khi login thành công và paste vào phần `header` khi chưa login. Và kết quả ở dưới.
+![Hình 8.](~/../img/8.png)
 
 #### OTG-AUTHN-005
 
