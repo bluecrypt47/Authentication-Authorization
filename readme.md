@@ -6,7 +6,6 @@ Mục lục:
   - [Authentication](#authentication)
     - [OTG-AUTHN-001](#otg-authn-001)
     - [OTG-AUTHN-002](#otg-authn-002)
-    - [OTG-AUTHN-002](#otg-authn-002-1)
     - [OTG-AUTHN-003](#otg-authn-003)
     - [OTG-AUTHN-004](#otg-authn-004)
     - [OTG-AUTHN-005](#otg-authn-005)
@@ -48,8 +47,6 @@ Tôi sử dụng `Burp Suite` để có thể bắt được các gói `header` 
 ![Hình 3.](~/../img/3.png)
 - Kết quả, tôi chỉ cần kiểm tra `Response` có chữ `Xin chào` hay không để có thể biết tài khoản này dùng được không.
 ![Hình 4.](~/../img/4.png)
-
-#### OTG-AUTHN-002
 
 #### OTG-AUTHN-003
 
