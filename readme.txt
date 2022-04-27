@@ -1,5 +1,7 @@
 Người thực hiện: Lê Trần Văn Chương.
+
 Thời gian: 21/04/2022.
+
 Mục lục:
 - [Authentication - Authorization](#authentication---authorization)
 - [Lab](#lab)
@@ -75,12 +77,16 @@ Sử dụng `Burp Suite` để kiểm tra các cookie được ứng dụng lưu
 
 #### Testing for Weak password policy (OTG-AUTHN-007)
 Độ yếu của passsword chia ra làm 3 level:
+
 ![Hình 10.](~/../img/10.png)
 - `Level 1`: password là `password` toàn những ký tự thường. Password ở đây khá tệ, vì với password toàn những chữ cái thường như `password` mà không có ký tự đặc biệt hoặc in hoa thì thường dễ bị tấn công vét cạn. Giả sử, ở `Level 1` này không thể register thì ta chuyển sang `Level 2`.
+
 ![Hình 11.](~/../img/11.png)
 - `Level 2`: password là `passworD` có thêm ký tự in hoa là 'D'. Vì password này, có thêm ký tự in hoa nên khả năng vét cạn sẽ tốn nhiều thời gian hơn. Giả sử, ở `Level 2` này không thể register thì ta chuyển sang `Level 3`.
+
 ![Hình 12.](~/../img/12.png)
 - `Level 3`: password là `P@sw0rd` vừa có ký tự thường, in hoa, số và ký tự đặc biệt nhưng ít hơn 8 ký tự. Web vẫn tiếp tục cho register.
+
 Đây là 1 lỗi bảo mật `password`.
 
 #### Testing for Weak security question/answer (OTG-AUTHN-008)
@@ -89,6 +95,19 @@ Sử dụng `Burp Suite` để kiểm tra các cookie được ứng dụng lưu
 - **Kiểm tra các câu trả lời brute-forcible**: Sử dụng các phương pháp được OTG-AUTHN-003 để xác định xem một số câu trả lời bảo mật được cung cấp không chính xác có kích hoạt cơ chế khóa hay không.
 
 #### Testing for weak password change or reset functionalities (OTG-AUTHN-009)
+Đối với cả việc thay đổi mật khẩu và đặt lại mật khẩu, điều quan trọng là phải kiểm tra:
+
+- Nếu người dùng, không phải là quản trị viên, có thể thay đổi hoặc đặt lại mật khẩu cho các tài khoản khác với tài khoản của họ.
+- Nếu người dùng có thể thao túng hoặc phá hoại quá trình thay đổi hoặc đặt lại mật khẩu để thay đổi hoặc đặt lại mật khẩu của người dùng hoặc quản trị viên khác.
+- Nếu quá trình thay đổi hoặc đặt lại mật khẩu dễ bị CSRF.
+
+**Kiểm tra Đặc lại password**: điều quan trọng là phải xác minh những điều sau:
+- Thông tin nào được yêu cầu để đặt lại mật khẩu?
+- Mật khẩu đặt lại được giao tiếp với người dùng như thế nào?
+- Đặt lại mật khẩu có được tạo ngẫu nhiên không?
+- Chức năng đặt lại mật khẩu có yêu cầu xác nhận trước khi thay đổi mật khẩu không?
+
+**Kiểm tra thay đổi mật khẩu**: Ngoài bài kiểm tra trước đó, điều quan trọng là phải xác minh: Mật khẩu cũ có được yêu cầu để hoàn tất việc thay đổi không?
 
 #### Testing for Weaker authentication in alternative channel (OTG-AUTHN-010)
 
