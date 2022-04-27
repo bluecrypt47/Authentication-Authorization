@@ -71,6 +71,15 @@ Sử dụng `Burp Suite` để kiểm tra các cookie được ứng dụng lưu
 #### Testing for Browser cache weakness (OTG-AUTHN-006)
 
 #### Testing for Weak password policy (OTG-AUTHN-007)
+Độ yếu của passsword chia ra làm 3 level:
+![Hình 10.](~/../img/10.png)
+- `Level 1`: password là `password` toàn những ký tự thường. Password ở đây khá tệ, vì với password toàn những chữ cái thường như `password` mà không có ký tự đặc biệt hoặc in hoa thì thường dễ bị tấn công vét cạn. Giả sử, ở `Level 1` này không thể register thì ta chuyển sang `Level 2`.
+![Hình 11.](~/../img/11.png)
+- `Level 2`: password là `passworD` có thêm ký tự in hoa là 'D'. Vì password này, có thêm ký tự in hoa nên khả năng vét cạn sẽ tốn nhiều thời gian hơn. Giả sử, ở `Level 2` này không thể register thì ta chuyển sang `Level 3`.
+![Hình 12.](~/../img/12.png)
+- `Level 3`: password là `P@sw0rd` vừa có ký tự thường, in hoa, số và ký tự đặc biệt nhưng ít hơn 8 ký tự. Web vẫn tiếp tục cho register.
+Đây là 1 lỗi bảo mật `password`.
+
 
 #### Testing for Weak security question/answer (OTG-AUTHN-008)
 

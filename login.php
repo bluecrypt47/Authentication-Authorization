@@ -140,6 +140,7 @@
         <input type="checkbox" name="remember" style="margin-left: -250px;" <?php if (isset($_COOKIE['login'])) { ?> checked <?php  } ?> />
         <label for="remember" style="margin-left: -120px; font-weight: bold;">Remember me</label>
         <input type="submit" name="login" value="Login" style="background: #4CAF50;" />
+        <p class="message">Not registered? <a href="register.php">Create an account</a></p>
         <?php require 'handle.php'; ?>
       </form>
     </div>
