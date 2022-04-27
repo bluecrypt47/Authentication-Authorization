@@ -110,13 +110,24 @@ Sử dụng `Burp Suite` để kiểm tra các cookie được ứng dụng lưu
 **Kiểm tra thay đổi mật khẩu**: Ngoài bài kiểm tra trước đó, điều quan trọng là phải xác minh: Mật khẩu cũ có được yêu cầu để hoàn tất việc thay đổi không?
 
 #### Testing for Weaker authentication in alternative channel (OTG-AUTHN-010)
+Chưa hiểu lắm
 
 
 ### Authorization
-
 #### Testing Directory traversal/file include (OTG-AUTHZ-001)
+Vì 1 số lý do nên tôi sẽ sử dụng lab của `portswigger.net` để làm phần này.
+- Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab.
+![Hình 14.](~/../img/14.png)
+
+- Tiếp theo, sử dụng `Send to Repeater` của `Burp Suite` để có thể thêm `../../../../etc/passwd` vào thay thế cho `58.jpg` để có thể lấy được lấy tệp băm mật khẩu của hệ thống.
+![Hình 15.](~/../img/15.png)
+
+Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/etc/passwd`, `....//....//....//etc/passwd`, `..%252f..%252f..%252fetc/passwd`, `var/www/images/../../../etc/passwd`, `../../../etc/passwd%00.png`
+
 #### Testing for bypassing authorization schema (OTG-AUTHZ-002)
+
 #### Testing for Privilege Escalation (OTG-AUTHZ-003)
+
 #### Testing for Insecure Direct Object References (OTG-AUTHZ-004)
 
 
