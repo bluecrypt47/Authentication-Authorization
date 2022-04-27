@@ -69,6 +69,9 @@ Sử dụng `Burp Suite` để kiểm tra các cookie được ứng dụng lưu
 ![Hình 9.](~/../img/9.png)
 
 #### Testing for Browser cache weakness (OTG-AUTHN-006)
+- Về mặt kỹ thuật, nút "Back" là lịch sử chứ không phải bộ nhớ cache. Bộ nhớ cache và lịch sử là hai thực thể khác nhau. Tuy nhiên, chúng có chung điểm yếu là đưa ra những thông tin nhạy cảm đã được hiển thị trước đó.
+- Thử nghiệm đầu tiên và đơn giản nhất bao gồm nhập thông tin nhạy cảm vào ứng dụng và đăng xuất. Sau đó, người kiểm tra nhấp vào nút "Quay lại" của trình duyệt để kiểm tra xem thông tin nhạy cảm được hiển thị trước đó có thể được truy cập trong khi chưa được xác thực hay không.
+- Nếu bằng cách nhấn nút "Quay lại" mà người kiểm tra có thể truy cập các trang trước đó nhưng không truy cập được các trang mới, thì đó không phải là vấn đề xác thực mà là vấn đề lịch sử trình duyệt. Nếu các trang này chứa dữ liệu nhạy cảm, điều đó có nghĩa là ứng dụng đã không cấm trình duyệt lưu trữ dữ liệu đó.
 
 #### Testing for Weak password policy (OTG-AUTHN-007)
 Độ yếu của passsword chia ra làm 3 level:
@@ -80,8 +83,10 @@ Sử dụng `Burp Suite` để kiểm tra các cookie được ứng dụng lưu
 - `Level 3`: password là `P@sw0rd` vừa có ký tự thường, in hoa, số và ký tự đặc biệt nhưng ít hơn 8 ký tự. Web vẫn tiếp tục cho register.
 Đây là 1 lỗi bảo mật `password`.
 
-
 #### Testing for Weak security question/answer (OTG-AUTHN-008)
+- **Kiểm tra các câu hỏi yếu được tạo trước**: Cố gắng lấy danh sách các câu hỏi bảo mật bằng cách tạo tài khoản mới hoặc làm theo quy trình "I don't remember my password". Cố gắng tạo càng nhiều câu hỏi càng tốt để hiểu rõ về loại câu hỏi bảo mật được hỏi.
+- **Kiểm tra các câu hỏi tự tạo yếu**: Cố gắng tạo các câu hỏi bảo mật bằng cách tạo một tài khoản mới hoặc bằng cách định cấu hình các thuộc tính khôi phục mật khẩu hiện tại của tài khoản của bạn. Nếu hệ thống cho phép người dùng tạo các câu hỏi bảo mật của riêng họ, thì rất dễ bị tạo ra các câu hỏi không an toàn. Nếu hệ thống sử dụng các câu hỏi bảo mật tự tạo trong chức năng quên mật khẩu và nếu tên người dùng có thể được liệt kê, thì người kiểm tra sẽ dễ dàng liệt kê một số câu hỏi tự tạo. Có thể hy vọng sẽ tìm thấy một số câu hỏi tự tạo yếu bằng phương pháp này.
+- **Kiểm tra các câu trả lời brute-forcible**: Sử dụng các phương pháp được OTG-AUTHN-003 để xác định xem một số câu trả lời bảo mật được cung cấp không chính xác có kích hoạt cơ chế khóa hay không.
 
 #### Testing for weak password change or reset functionalities (OTG-AUTHN-009)
 
