@@ -117,10 +117,10 @@ Chưa hiểu lắm
 #### Testing Directory traversal/file include (OTG-AUTHZ-001)
 Vì 1 số lý do nên tôi sẽ sử dụng lab của `portswigger.net` để làm phần này. Link Lab: https://portswigger.net/web-security/file-path-traversal/lab-simple
 - Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab.
-![Hình 14.](~/../img/14.png)
+
 
 - Tiếp theo, sử dụng `Send to Repeater` của `Burp Suite` để có thể thêm `../../../../etc/passwd` vào thay thế cho `58.jpg` để có thể lấy được lấy tệp băm mật khẩu của hệ thống.
-![Hình 15.](~/../img/15.png)
+
 
 Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/etc/passwd`, `....//....//....//etc/passwd`, `..%252f..%252f..%252fetc/passwd`, `var/www/images/../../../etc/passwd`, `../../../etc/passwd%00.png`.
 
