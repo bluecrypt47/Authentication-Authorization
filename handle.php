@@ -92,3 +92,30 @@ if (isset($_POST['register'])) {
         }
     }
 }
+
+//Upload file
+if (isset($_POST['upload'])) {
+
+    // lay thong tin file upload
+    $name = $_FILES['file']['name'];
+    $size = $_FILES['file']['size'];
+    $email = $_SESSION['email'];
+    $destination = './uploads/' . $name;
+
+    $extension = pathinfo($name, PATHINFO_EXTENSION);
+
+    $file = $_FILES['file']['tmp_name'];
+    $size = $_FILES['file']['size'];
+
+
+    if (move_uploaded_file($file, $destination)) {
+        $sql = "INSERT INTO upload (name, size, email) VALUES ('$name',  $size, '$email')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo '<script language="javascript">alert("Upload file Successfully!"); window.location="index.php";</script>';
+        } else {
+            echo '<script language="javascript">alert("Upload file Fail!"); window.location="upload.php";</script>';
+            die();
+        }
+    }
+}
