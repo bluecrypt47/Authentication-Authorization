@@ -78,7 +78,7 @@
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $file['name']; ?></td>
                     <td><a class="btn btn-primary" href="fileDetail.php?filename=<?php echo $file['name'] ?>">View</a> |
-                        <a class="btn btn-primary" href="index.php?filename=<?php echo $file['name'] ?>">Download</a>
+                        <a class="btn btn-primary" href="index.php?f=<?php echo $file['name'] ?>">Download</a>
                     </td>
 
                 </tr>

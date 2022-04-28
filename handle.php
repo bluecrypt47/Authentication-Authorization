@@ -121,8 +121,8 @@ if (isset($_POST['upload'])) {
 }
 
 //Download
-if (isset($_GET['filename'])) {
-    $file = $_GET['filename'];
+if (isset($_GET['f'])) {
+    $file = $_GET['f'];
 
     header("Expires: 0");
     header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -131,11 +131,10 @@ if (isset($_GET['filename'])) {
     header("Pragma: no-cache");
 
     $ext = pathinfo($file, PATHINFO_EXTENSION);
-    $basename = pathinfo($file, PATHINFO_BASENAME);
 
     header("Content-type: application/" . $ext);
     header('Content-length: ' . filesize($file));
-    header("Content-Disposition: attachment; filename=\"$basename\"");
+    header("Content-Disposition: attachment; filename=\"$file\"");
     ob_clean();
     flush();
     readfile($file);
