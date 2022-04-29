@@ -118,8 +118,8 @@ Chưa hiểu lắm
 - Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab. Và thêm sau url `?f=index.php`.
 ![Hình 14.](~/../img/14.png)
 
-- Tiếp theo, sử dụng `Send to Repeater` của `Burp Suite` để có thể thêm `?f=../../test.txt` để xem dữ liệu của tệp.
-
+- Tiếp theo, sử dụng `Send to Repeater` của `Burp Suite` để có thể thêm `?f=../SQLi.txt` để xem dữ liệu của tệp.
+![Hình 15.](~/../img/15.png)
 
 Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/etc/passwd`, `....//....//....//etc/passwd`, `..%252f..%252f..%252fetc/passwd`, `var/www/images/../../../etc/passwd`, `../../../etc/passwd%00.png`.
 
