@@ -42,6 +42,8 @@
         echo '<a href="logout.php" class="btn" >Logout</a> <br \>';
         //  upload file 
         echo '<a href="upload.php" class="btn" >Upload</a>';
+        // Edit account
+        echo '<a href="editAccount.php" class="btn" >Account</a> <br \>';
     } else {
         echo '<script> window.location="login.php";</script>';
     }
@@ -55,16 +57,6 @@
 
     $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
     ?>
-
-    <!-- Search
-    <div align="center">
-        <form action="search.php" method="get">
-            Search: <input type="text" name="search" />
-            <input type="submit" name="ok" value="search" />
-        </form>
-    </div> -->
-
-
     <table>
         <thead>
             <th>No.</th>

@@ -126,6 +126,8 @@ Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/et
 #### Testing for bypassing authorization schema (OTG-AUTHZ-002)
 
 #### Testing for Privilege Escalation (OTG-AUTHZ-003)
+![Hình 16.](~/../img/16.png)
+![Hình 17.](~/../img/17.png)
 
 #### Testing for Insecure Direct Object References (OTG-AUTHZ-004)
 
