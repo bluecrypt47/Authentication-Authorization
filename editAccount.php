@@ -24,11 +24,11 @@ require 'handle.php';
 <body>
 
     <?php
-    if (isset($_SESSION['email'])) {
-        $email = $_SESSION['email'];
+    if (isset($_GET['idUser'])) {
+        $id = $_GET['idUser'];
 
         // fetch file to download from database
-        $sql = "SELECT * FROM users WHERE email='$email'";
+        $sql = "SELECT * FROM users WHERE id='$id'";
         $result = mysqli_query($conn, $sql);
 
         $account = mysqli_fetch_assoc($result);
@@ -48,7 +48,7 @@ require 'handle.php';
 
         <input type="submit" name="submit" value="Update" style="background: #4CAF50;" />
     </form>
-    <a href="index.php" class="btn btn-primary">Home</a>
+    <a href="index.php" class="btn btn-primary">Back home</a>
 
     <?php if (isset($_REQUEST['submit'])) {
         $password = $_REQUEST['password'];

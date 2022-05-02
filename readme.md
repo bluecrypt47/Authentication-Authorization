@@ -126,12 +126,17 @@ Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/et
 #### Testing for bypassing authorization schema (OTG-AUTHZ-002)
 
 #### Testing for Privilege Escalation (OTG-AUTHZ-003)
+- Leo thang đặc quyền nói đơn giản là từ 1 user bình thường bằng nhiều cách khác nhau các Hacker có thể đưa user lên làm admin và có quyền hạn như là 1 admin chính hiệu.
 ![Hình 16.](~/../img/16.png)
+- Ví dụ hình trên, thì tôi đã vào source của web để xem và thấy thẻ `input role` đang ẩn và giá trị của nó là `0` và tôi cứ việc đổi giá trị của nó và update như hình dưới. 
 ![Hình 17.](~/../img/17.png)
 
 #### Testing for Insecure Direct Object References (OTG-AUTHZ-004)
-
-
+- Lỗi này xảy ra khi một ứng dụng cung cấp quyền truy cập trực tiếp vào các đối tượng dựa trên đầu vào do người dùng cung cấp. Kết quả của lỗ hổng này là những kẻ tấn công có thể bỏ qua ủy quyền và truy cập trực tiếp vào các tài nguyên trong hệ thống.
+![Hình 18.](~/../img/18.png)
+- Ví dụ trong hình trên, ta thấy, url có tham số `idUser` thì với tham số này tôi có thể thay đổi thông tin của các user khác bằng cách nhập 1 cái `idUser` khác như hình dưới.
+![Hình 19.](~/../img/19.png)
+- Sau khi tôi lấy được `idUser` này tôi có thể thay đổi hoặc mua bán gì đó tùy ý mình.
 
 
 

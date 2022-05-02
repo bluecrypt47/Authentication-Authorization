@@ -37,20 +37,29 @@
 
 <body>
     <?php
-    if (isset($_SESSION['email'])) {
-        echo '<h1 align="center">Welcome ' . $_SESSION['email'] . "!</h1>";
+
+
+    $email = $_SESSION['email'];
+
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($result);
+
+
+
+    if (isset($user['id'])) {
+        echo '<h1 align="center">Welcome ' . $user['username'] . "!</h1>";
         echo '<a href="logout.php" class="btn" >Logout</a> <br \>';
         //  upload file 
         echo '<a href="upload.php" class="btn" >Upload</a>';
         // Edit account
-        echo '<a href="editAccount.php" class="btn" >Account</a> <br \>';
+        echo '<a href="editAccount.php?idUser=' . $user['id'] . '" class="btn" >Account</a> <br \>';
     } else {
         echo '<script> window.location="login.php";</script>';
     }
     ?>
 
     <?php
-    $conn = mysqli_connect('localhost', 'root', '', 'xss');
 
     $sql = "SELECT * FROM upload";
     $result = mysqli_query($conn, $sql);
