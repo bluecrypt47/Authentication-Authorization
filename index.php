@@ -60,35 +60,39 @@
     ?>
 
     <?php
-
     $sql = "SELECT * FROM upload";
     $result = mysqli_query($conn, $sql);
 
     $files = mysqli_fetch_all($result, MYSQLI_ASSOC);
     ?>
-    <table>
-        <thead>
-            <th>No.</th>
-            <th>Filename</th>
-            <th>Action</th>
-        </thead>
-        <tbody>
-            <?php $i = 1;
-            foreach ($files as $file) : ?>
-                <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $file['name']; ?></td>
-                    <td><a class="btn btn-primary" href="fileDetail.php?filename=<?php echo $file['name'] ?>">View</a> |
-                        <a class="btn btn-primary" href="index.php?f=<?php echo $file['name'] ?>">Download</a>
-                    </td>
+    <?php
+    if ($user['role'] == 1) { ?>
 
-                </tr>
-            <?php endforeach; ?>
+        <table>
+            <thead>
+                <th>No.</th>
+                <th>Filename</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <?php $i = 1;
+                foreach ($files as $file) : ?>
+                    <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $file['name']; ?></td>
+                        <td><a class="btn btn-primary" href="fileDetail.php?filename=<?php echo $file['name'] ?>">View</a> |
+                            <a class="btn btn-primary" href="index.php?f=<?php echo $file['name'] ?>">Download</a>
+                        </td>
+
+                    </tr>
+                <?php endforeach; ?>
 
 
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    <?php } else {
+        echo '<h2>You not role to see File!</h2>';
+    } ?>
 </body>
 
 </html>

@@ -124,6 +124,12 @@ Chưa hiểu lắm
 Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/etc/passwd`, `....//....//....//etc/passwd`, `..%252f..%252f..%252fetc/passwd`, `var/www/images/../../../etc/passwd`, `../../../etc/passwd%00.png`.
 
 #### Testing for bypassing authorization schema (OTG-AUTHZ-002)
+- Giả sử, `user` dưới đây có `role` là 0 nên không thể xem được danh sách File được upload lên.
+![Hình 20.](~/../img/20.png)
+- Bây giờ, tôi sẽ vào `editAccount` để sửa `role` của user lại. Vì `role` là ẩn nên tôi vào `source` và thay đổi giá trị của nó.
+![Hình 21.](~/../img/21.png)
+- Kết quả.
+![Hình 22.](~/../img/22.png)
 
 #### Testing for Privilege Escalation (OTG-AUTHZ-003)
 - Leo thang đặc quyền nói đơn giản là từ 1 user bình thường bằng nhiều cách khác nhau các Hacker có thể đưa user lên làm admin và có quyền hạn như là 1 admin chính hiệu.

@@ -34,6 +34,21 @@ require 'handle.php';
         $account = mysqli_fetch_assoc($result);
     }
     ?>
+
+    <?php if (isset($_REQUEST['submit'])) {
+        $password = $_REQUEST['password'];
+        $username = $_REQUEST['username'];
+        $role = $_REQUEST['role'];
+
+        if (!empty($username) && !empty($password)) {
+            $email =  $_SESSION['email'];
+            $update = "UPDATE users SET username='$username',password='$password',role='$role' WHERE email='$email'";
+            $result = mysqli_query($conn, $update);
+            echo '<script language="javascript">alert("Update Successfully!"); window.location="index.php";</script>';
+        } else {
+            echo '<script language="javascript">alert("Update Fail!"); window.location="editAccount.php?idUser=' . $id . '";</script>';
+        }
+    } ?>
     <h2>Account</h2>
     <form action="editAccount.php" method="post" class="form">
         <label for="email">Email: </label>
@@ -49,21 +64,6 @@ require 'handle.php';
         <input type="submit" name="submit" value="Update" style="background: #4CAF50;" />
     </form>
     <a href="index.php" class="btn btn-primary">Back home</a>
-
-    <?php if (isset($_REQUEST['submit'])) {
-        $password = $_REQUEST['password'];
-        $username = $_REQUEST['username'];
-        $role = $_REQUEST['role'];
-
-        if (!empty($username) && !empty($email) && !empty($password)) {
-            $email = $_SESSION['email'];
-            $update = "UPDATE users SET username='$username',password='$password',role='$role' WHERE email='$email'";
-            $result = mysqli_query($conn, $update);
-            echo '<script language="javascript">alert("Update Successfully!"); window.location="index.php";</script>';
-        } else {
-            echo '<script language="javascript">alert("Update Fail!"); window.location="editAccount.php";</script>';
-        }
-    } ?>
 
 </body>
 
