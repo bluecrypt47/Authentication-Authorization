@@ -115,7 +115,11 @@ Chưa hiểu lắm
 
 ### Authorization
 #### Testing Directory traversal/file include (OTG-AUTHZ-001)
-- Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab. Và thêm sau url `?f=index.php`.
+- Nhiều ứng dụng web sử dụng các phương pháp xác thực đầu vào chưa được thiết kế hoặc triển khai tốt, kẻ xâm nhập có thể khai thác hệ thống để đọc hoặc ghi các tệp không nhằm mục đích có thể truy cập được.
+- Nhiều ứng dụng web sử dụng tập lệnh phía máy chủ để bao gồm các loại tệp khác nhau. Phương pháp này khá phổ biến để quản lý hình ảnh, mẫu, tải văn bản tĩnh, v.v. Thật không may, các ứng dụng này để lộ lỗ hổng bảo mật nếu các tham số đầu vào (tức là tham số biểu mẫu, giá trị cookie) không được xác thực chính xác.
+- Trong các máy chủ web và các ứng dụng web, loại vấn đề này phát sinh trong các cuộc tấn công truyền tải đường dẫn / tệp bao gồm. Bằng cách khai thác loại lỗ hổng này, kẻ tấn công có thể đọc các thư mục hoặc tệp mà chúng thường không thể đọc, truy cập dữ liệu bên ngoài gốc tài liệu web hoặc bao gồm các tập lệnh và các loại tệp khác từ các trang web bên ngoài.
+- Loại tấn công này còn được gọi là tấn công dấu chấm-chấm-gạch chéo (../), duyệt thư mục, leo thư mục hoặc theo dõi ngược.
+- VD: Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab. Và thêm sau url `?f=index.php`.
 ![Hình 14.](~/../img/14.png)
 
 - Tiếp theo, sử dụng `Send to Repeater` của `Burp Suite` để có thể thêm `?f=../SQLi.txt` để xem dữ liệu của tệp.
@@ -124,7 +128,8 @@ Chưa hiểu lắm
 Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/etc/passwd`, `....//....//....//etc/passwd`, `..%252f..%252f..%252fetc/passwd`, `var/www/images/../../../etc/passwd`, `../../../etc/passwd%00.png`.
 
 #### Testing for bypassing authorization schema (OTG-AUTHZ-002)
-- Giả sử, `user` dưới đây có `role` là 0 nên không thể xem được danh sách File được upload lên.
+- Loại kiểm tra này tập trung vào việc xác minh cách lược đồ ủy quyền đã được triển khai cho từng vai trò hoặc đặc quyền để có quyền truy cập vào các chức năng và tài nguyên dành riêng. Đối với 1 vai trò cụ thể mà người kiểm tra nắm giữ trong quá trình đánh giá, đối với mọi chức năng và yêu cầu mà ứng dụng thực thi trong giai đoạn hậu xác thực.
+- Giả sử, `user` dưới đây có `role` là 0 nên không thể xem được danh sách File được upload lên. Và chỉ `user` có `role` là 1 mới có thể xem.
 ![Hình 20.](~/../img/20.png)
 - Bây giờ, tôi sẽ vào `editAccount` để sửa `role` của user lại. Vì `role` là ẩn nên tôi vào `source` và thay đổi giá trị của nó.
 ![Hình 21.](~/../img/21.png)
