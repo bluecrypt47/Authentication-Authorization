@@ -70,13 +70,15 @@ session_start();
     </table>
     <h2> Comment </h2>
     <form method="POST">
+        <input name="email" type="hidden" value="<?php echo $_SESSION['email']; ?>">
         <textarea name="content" style="width: 60%; margin-left: 200px;" rows="5" placeholder="Write comment here..."></textarea><br />
         <input type="submit" value="Send" name="submit" class="btn btn-primary" style="margin-left: 200px;">
     </form>
     <br />
     <?php
     if (isset($_POST['content'])) {
-        $content = $_POST['content'];
+        $content = trim($_POST['content']);
+        $email = $_POST['email'];
         $filename = $_GET['filename'];
 
         if (empty($content)) {
@@ -84,8 +86,6 @@ session_start();
         } elseif ($filename == '') {
             echo '<script language="javascript">alert("You have not commented!"); window.location="fileDetail.php";</script>';
         } elseif (isset($_SESSION['email'])) {
-            $email = $_SESSION['email'];
-
             $sql = "INSERT INTO comments (filename, email, content) VALUES ('$filename','$email','$content')";
             $result = mysqli_query($conn, $sql);
             if (!$result) {

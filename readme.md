@@ -158,6 +158,12 @@ Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/et
 ![Hình 19.](~/../img/19.png)
 - Sau khi tôi lấy được `idUser` này tôi có thể thay đổi hoặc mua bán gì đó tùy ý mình.
 
+- Tiếp theo, tôi sẽ thử chức năng `comment` vào file và tôi đang login bằng user `asd@gmail.com`
+![Hình 26.](~/../img/26.png)
+
+- Nhưng tôi sẽ comment `hihihi` nhưng bằng user `qwe@gmail.com` trong khi vẫn đang login vào user `asd@gmail.com` và hình dưới là kết quả.
+![Hình 27.](~/../img/27.png)
+
 
 
 
