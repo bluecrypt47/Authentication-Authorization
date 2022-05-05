@@ -122,7 +122,7 @@ if (isset($_POST['upload'])) {
 
 //Download
 if (isset($_GET['f'])) {
-    $file = $_GET['f'];
+    $file = './uploads/' . $_GET['f'];
 
     header("Expires: 0");
     header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");

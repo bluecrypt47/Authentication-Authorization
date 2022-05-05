@@ -1,0 +1,1 @@
+chỉnh sửa cmt sửa thành đoạn này" javascript:alert(1)//INJECTX " thì lưu còn những đoạn script thì ko

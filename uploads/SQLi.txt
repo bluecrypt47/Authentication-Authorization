@@ -1,0 +1,15 @@
+1. Truy xuất dữ liệu ẩn: là nơi chúng ta có thể truy vấn SQL để trả về kết quả như mong muốn chẳng hạn như trên thanh URL của trình duyệt website. 
+- VD: Chúng ta có URL như sau: https://example.com/products?category=Gifts
+	+ Câu truy vấn SQL như sau: SELECT * FROM products WHERE category = 'Gifts' AND released = 1. Với câu SQL này kết 	quả sẽ trả về chi tiết các sản phẩm trong category từ bảng products nơi có category là ‘Gifts’ và giá trị của released là 1 còn giá trị 	0 sẽ không hiển thị.
+	+ Bây giờ chúng ta sẽ thêm 2 kí tự gạch ngang của URL trên. https:///example.com/products?category=Gifts'--. Và câu SQL của 	chúng ta lúc này sẽ như thế này: SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1 . Vì trong SQL, dấu 	"--" là comment nên kết quả trả về sẽ là những sản phẩm chỉ cần có category='Gifts'.
+	
+2. Chuyển logic ứng dụng: được thể hiện qua việc xác thực đăng nhập của một người dụng đối với website ứng dụng.
+
+3. Tấn công UNION: sử dụng toán tử UNION trong ngôn ngữ SQL cho phép tổng hợp kết quả của 2 hay nhiều câu truy vấn SELECTION trong cùng 1 kết quả và được trả về như một phần của HTTP response
+VD: cũng dùng web trên và thêm vào sau "' UNION SELECT username, password FROM users--"
+
+4. Blind SQLi: các phản hồi HTTP của nó không chứa kết quả của truy vấn SQL có liên quan hoặc chi tiết về bất kỳ lỗi cơ sở dữ liệu nào. Loại tấn công này chủ yếu sẽ dựa vào các boolean trả về.
+
+5. Stored-procedures: tấn công này chủ yếu nhắm vào các tài khoản quản trị (như tài khoản 'root' Mysql hoặc 'sa' MS Server) để hacker có thể điều khiển và làm rối loạn hệ thống. 
+
+6. Error-base: Là một kỹ thuật tấn công SQL Injection dựa vào thông báo lỗi được trả về từ Database Server có chứa thông tin về cấu trúc của cơ sở dữ liệu.
