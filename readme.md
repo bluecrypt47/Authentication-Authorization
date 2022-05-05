@@ -119,11 +119,20 @@ Chưa hiểu lắm
 - Nhiều ứng dụng web sử dụng tập lệnh phía máy chủ để bao gồm các loại tệp khác nhau. Phương pháp này khá phổ biến để quản lý hình ảnh, mẫu, tải văn bản tĩnh, v.v. Thật không may, các ứng dụng này để lộ lỗ hổng bảo mật nếu các tham số đầu vào (tức là tham số biểu mẫu, giá trị cookie) không được xác thực chính xác.
 - Trong các máy chủ web và các ứng dụng web, loại vấn đề này phát sinh trong các cuộc tấn công truyền tải đường dẫn / tệp bao gồm. Bằng cách khai thác loại lỗ hổng này, kẻ tấn công có thể đọc các thư mục hoặc tệp mà chúng thường không thể đọc, truy cập dữ liệu bên ngoài gốc tài liệu web hoặc bao gồm các tập lệnh và các loại tệp khác từ các trang web bên ngoài.
 - Loại tấn công này còn được gọi là tấn công dấu chấm-chấm-gạch chéo (../), duyệt thư mục, leo thư mục hoặc theo dõi ngược.
-- VD: Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab. Và thêm sau url `?f=index.php`.
+- VD 1: Đầu tiên, phải load trang bằng `Burp Suite` để có thể lấy được header của lab. Và thêm sau url `?f=index.php`.
 ![Hình 14.](~/../img/14.png)
 
 - Tiếp theo, sử dụng `Send to Repeater` của `Burp Suite` để có thể thêm `?f=../SQLi.txt` để xem dữ liệu của tệp.
 ![Hình 15.](~/../img/15.png)
+
+- VD 2: Tôi sử dụng chức năng `Read file` của web để có thể thực hiện tấn công ` Directory traversal` như hình bên dưới.
+![Hình 23.](~/../img/23.png)
+
+- Tôi thử đọc file `readme.md` nhưng không được và nó đã hiện lỗi cho tôi. 
+![Hình 24.](~/../img/24.png)
+
+- Vì vậy tôi đã thêm `../` vào trước file `readme.md` để có thể đọc nó. Và kết quả ở dưới. Cứ như v tôi cũng đã thử với nhiều file khác.
+![Hình 25.](~/../img/25.png)
 
 Ngoài ra, tùy vào từng trường hợp mà bạn có thể sử dụng `/etc/passwd`, `....//....//....//etc/passwd`, `..%252f..%252f..%252fetc/passwd`, `var/www/images/../../../etc/passwd`, `../../../etc/passwd%00.png`.
 
