@@ -68,7 +68,50 @@ session_start();
             <?php endforeach; ?>
         </tbody>
     </table>
+    <h2> Comment </h2>
+    <form method="POST">
+        <textarea name="content" style="width: 60%; margin-left: 200px;" rows="5" placeholder="Write comment here..."></textarea><br />
+        <input type="submit" value="Send" name="submit" class="btn btn-primary" style="margin-left: 200px;">
+    </form>
+    <br />
+    <?php
+    if (isset($_POST['content'])) {
+        $content = $_POST['content'];
+        $filename = $_GET['filename'];
 
+        if (empty($content)) {
+            echo '<script language="javascript">alert("Enter comment, pls!"); window.location="fileDetail.php";</script>';
+        } elseif ($filename == '') {
+            echo '<script language="javascript">alert("You have not commented!"); window.location="fileDetail.php";</script>';
+        } elseif (isset($_SESSION['email'])) {
+            $email = $_SESSION['email'];
+
+            $sql = "INSERT INTO comments (filename, email, content) VALUES ('$filename','$email','$content')";
+            $result = mysqli_query($conn, $sql);
+            if (!$result) {
+                $result = mysqli_error($conn);
+            }
+        }
+    }
+    ?>
+    <?php
+    $filename = $_GET['filename'];
+
+    $sql = "SELECT * FROM comments where filename = '$filename'";
+    $result = mysqli_query($conn, $sql);
+
+    $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    ?>
+    <div style="margin-left: 200px;">
+        <?php foreach ($comments as $comment) : ?>
+
+            <?php echo $comment['creDate']; ?>:
+            <b><?php echo $comment['email']; ?></b> :
+            <?php echo $comment['content']; ?> <br />
+
+        <?php endforeach; ?>
+    </div>
+    <br />
 </body>
 
 </html>

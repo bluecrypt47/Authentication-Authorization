@@ -73,6 +73,7 @@
                 <th>No.</th>
                 <th>Filename</th>
                 <th>Action</th>
+                <th>Author</th>
             </thead>
             <tbody>
                 <?php $i = 1;
@@ -80,6 +81,7 @@
                     <tr>
                         <td><?php echo $i++; ?></td>
                         <td><?php echo $file['name']; ?></td>
+                        <td><?php echo $file['email']; ?></td>
                         <td><a class="btn btn-primary" href="fileDetail.php?filename=<?php echo $file['name'] ?>">View</a> |
                             <a class="btn btn-primary" href="index.php?f=<?php echo $file['name'] ?>">Download</a> |
                             <a class="btn btn-primary" href="readFile.php?readFile=<?php echo $file['name'] ?>">Read</a>
